@@ -1,17 +1,33 @@
 import { Routes } from '@angular/router';
-import { Home } from './features/home/home';
-
+import { Home } from './features/home/home'; // Ajusta la ruta a tu componente
+import { Contact } from './features/contact/contact'; // Ajusta la ruta a tu componente
+import { Services } from './features/services/services';
+import { Bussiness } from './features/bussiness/bussiness';
 
 export const routes: Routes = [
-  {
-    path: '',
-    loadComponent: () => import('./features/home/home').then(m => m.Home),
-    title: 'VooltLab | Soluciones Tecnologicas' // Título para la pestaña del navegador (Angular 14+)
+  { 
+    path: '', 
+    component: Home,
+    title: 'VooltLab | Soluciones Tecnologicas' // Título que aparecerá en la pestaña
   },
-  // En el futuro agregarás:
-  // { path: 'servicios', loadComponent: ... },
-  {
-    path: '**', // Ruta comodín para 404 (opcional por ahora)
-    redirectTo: ''
+  { 
+    path: 'contact', 
+    component: Contact,
+    title: 'VooltLab | Soluciones Tecnologicas'
+  },
+  { 
+    path: 'services', 
+    component: Services,
+    title: 'VooltLab | Soluciones Tecnologicas'
+  },
+  { 
+    path: 'business', 
+    component: Bussiness,
+    title: 'VooltLab | Soluciones Tecnologicas'
+  },
+  { 
+    path: '**', 
+    redirectTo: '', 
+    pathMatch: 'full' 
   }
 ];

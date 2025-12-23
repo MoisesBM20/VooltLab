@@ -1,0 +1,66 @@
+.business-section {
+  background-color: #ffffff;
+
+  .spacing-1 { letter-spacing: 0.15rem; }
+  .accent-line-slim { width: 30px; height: 1.5px; background: #000; }
+  .small-text { font-size: 0.95rem; line-height: 1.7; }
+  .info-panel, .purpose-panel { border: 1px solid #e5e5e5 !important; }
+  .grayscale-dark { filter: grayscale(100%); opacity: 0.8; }
+
+  /* Estructura de Árbol (Ascendente) */
+  .org-tree-upward {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 1000px;
+
+    .org-row {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      gap: 15px;
+    }
+
+    .connector-line {
+      width: 1px;
+      height: 40px;
+      background: #ddd;
+    }
+
+    .org-item {
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      min-width: 260px;
+      
+      &.lead-item { background: #1a1a1a; color: #fff; border: none; padding: 1.5rem 3rem; }
+      &.border-start-dark { border-left: 4px solid #1a1a1a; }
+      &.border-dashed { border: 1px dashed #999; background: #fcfcfc; }
+      
+      &.dept-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+        min-width: 170px;
+        background: #f9f9f9;
+        padding: 1.5rem 0.5rem;
+      }
+
+      .org-text {
+        display: flex;
+        flex-direction: column;
+        .role { font-weight: 700; font-size: 0.9rem; }
+        .desc { font-size: 0.72rem; color: #777; }
+      }
+    }
+  }
+
+  @media (max-width: 991px) {
+    .org-tree-upward { min-width: auto; }
+    .org-row { flex-direction: column; align-items: center; }
+    .connector-line { display: none; }
+  }
+}
