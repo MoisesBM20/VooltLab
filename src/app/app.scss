@@ -1,0 +1,82 @@
+/* Animación de pulsación */
+@keyframes whatsapp-pulse-animation {
+  0% {
+    transform: scale(0.6);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Animación de sacudida */
+@keyframes whatsapp-shake-animation {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  background-color: #25d366; /* Color de WhatsApp */
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 2.2rem;
+  line-height: 60px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    animation: whatsapp-shake-animation 0.8s ease-in-out infinite; /* Agregamos animación al hover */
+  }
+
+  .bi-whatsapp {
+    // Aseguramos que el icono sea del tamaño correcto
+    display: block;
+    font-size: 2.2rem;
+    line-height: 1; // Para centrarlo verticalmente
+  }
+}
+
+.whatsapp-pulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #25d366;
+  border-radius: 50%;
+  z-index: -1; // Detrás del botón
+  animation: whatsapp-pulse-animation 2s infinite ease-out;
+  pointer-events: none; // Permite hacer clic en el botón, no en el pulso
+}
+
+/* Ajustes para móviles */
+@media (max-width: 767px) {
+  .whatsapp-float {
+    width: 55px;
+    height: 55px;
+    font-size: 2rem;
+    line-height: 55px;
+    bottom: 20px;
+    right: 20px;
+  }
+  .whatsapp-float .bi-whatsapp {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,44 @@
+
+.landing-wrapper {
+  background-color: #ffffff;
+  background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+  background-size: 24px 24px;
+  min-height: 100vh;
+}
+
+section, header {
+  position: relative;
+  background: transparent; 
+  border-bottom: 1px solid rgba(0,0,0,0.03);
+}
+
+.hero-section {
+  background: linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(248,249,250,0.8) 100%);
+}
+
+.bg-light-transparent {
+    background-color: rgba(248, 249, 250, 0.6) !important;
+}
+
+.card, .service-card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05) !important;
+  background-color: #ffffff; 
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,0.08) !important;
+    border-color: rgba(13, 110, 253, 0.3) !important;
+  }
+}
+
+.feature-icon, .step-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.step-circle {
+    background-color: #ffffff;
+}

@@ -1,0 +1,15 @@
+.footer-logo {
+    height: 100px;       /* Tamaño ideal para el footer */
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: scale(1.05); /* Efecto sutil al pasar el mouse */
+    }
+}
+
+// Opcional: ajustar el color de los links al pasar el mouse
+.list-unstyled a:hover {
+    color: var(--bs-primary) !important;
+}
