@@ -1,0 +1,64 @@
+.projects-section {
+  .accent-line-slim { 
+    width: 35px; 
+    height: 1.5px; 
+    background: #000; 
+  }
+
+  .lead-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .project-year {
+    font-size: 1.2rem;
+    font-family: 'Courier New', Courier, monospace; // Estilo técnico/mecanografiado
+  }
+
+  .project-item {
+    transition: background-color 0.3s ease;
+    
+    &:hover {
+      background-color: #fafafa;
+      
+      .grayscale {
+        filter: grayscale(0%);
+        opacity: 1;
+      }
+    }
+  }
+
+  .badge-tech {
+    background: #f0f0f0;
+    color: #333;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+  }
+
+  .project-img-wrapper {
+    overflow: hidden;
+    height: 200px;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.5s ease;
+    }
+  }
+
+  .grayscale {
+    filter: grayscale(100%);
+    opacity: 0.7;
+  }
+
+  /* Alineación para móviles */
+  @media (max-width: 768px) {
+    .project-year { margin-bottom: 1rem; display: block; }
+    .project-img-wrapper { height: 150px; }
+  }
+}

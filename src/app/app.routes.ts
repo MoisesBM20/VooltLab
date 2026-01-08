@@ -3,6 +3,7 @@ import { Home } from './features/home/home'; // Ajusta la ruta a tu componente
 import { Contact } from './features/contact/contact'; // Ajusta la ruta a tu componente
 import { Services } from './features/services/services';
 import { Bussiness } from './features/bussiness/bussiness';
+import { Projects } from './features/projects/projects';
 
 export const routes: Routes = [
   { 
@@ -23,6 +24,11 @@ export const routes: Routes = [
   { 
     path: 'business', 
     component: Bussiness,
+    title: 'VooltLab | Soluciones Tecnologicas'
+  },
+  { 
+    path: 'projects', 
+    component: Projects,
     title: 'VooltLab | Soluciones Tecnologicas'
   },
   { 
