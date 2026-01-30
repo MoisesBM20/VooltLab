@@ -1,0 +1,101 @@
+// Usamos un fondo ligeramente diferente para contrastar,
+// o puedes usar #fcfcfc si la sección anterior era blanca.
+.projects-section {
+  background-color: #fff; // O #fcfcfc si prefieres alternar
+
+  // Reutilización del estilo de subtítulo pequeño
+  .extra-small {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+  }
+
+  // Estilos para cada bloque de proyecto
+  .project-item {
+    // En pantallas grandes, añadimos un poco más de "aire" vertical
+    @media (min-width: 992px) {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    h3 {
+      letter-spacing: -0.02em;
+    }
+
+    // Ajuste fino de los textos descriptivos
+    p.lead {
+        font-weight: 400;
+        line-height: 1.5;
+    }
+
+    p.small {
+      line-height: 1.7;
+    }
+
+    // Estilo de los badges de tecnología (igual al diseño anterior)
+    .badge.border {
+      font-weight: 500;
+      font-size: 0.7rem;
+      color: #555 !important;
+      background-color: #fff !important;
+      border-color: #e0e0e0 !important;
+    }
+  }
+
+  // --- GRID DE IMÁGENES ---
+  // Esto crea el diseño de 1 imagen grande arriba y 2 pequeñas abajo.
+  .project-image-grid {
+    display: grid;
+    // Definimos una cuadrícula de 2 columnas y 2 filas.
+    // Las filas tienen una altura mínima para mantener la estructura.
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: minmax(200px, auto) minmax(150px, auto);
+    gap: 1rem; // Espacio entre imágenes
+
+    .grid-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px; // Bordes redondeados consistentes
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; // Asegura que la imagen cubra el espacio sin deformarse
+        transition: transform 0.5s ease; // Efecto suave al pasar el mouse
+      }
+
+      // Efecto Hover sutil en las imágenes
+      &:hover img {
+        transform: scale(1.03);
+      }
+    }
+
+    // La imagen principal ocupa las dos columnas de la primera fila
+    .main-img {
+      grid-column: 1 / span 2;
+      grid-row: 1;
+      min-height: 250px; // Altura mínima para la imagen principal
+
+       @media (min-width: 768px) {
+         min-height: 350px; // Más alta en tablets/desktop
+       }
+    }
+
+    // Las imágenes secundarias ocupan una columna cada una en la segunda fila
+    .sub-img-1 {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .sub-img-2 {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    // Opcional: Si quieres que el grid del lado derecho se vea "espejado"
+    // puedes usar esta clase, aunque el diseño actual se ve bien sin ella.
+    &.grid-reversed {
+        // Podrías cambiar el orden aquí si quisieras un layout diferente
+        // para los proyectos pares.
+    }
+  }
+}

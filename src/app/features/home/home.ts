@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -8,6 +8,8 @@ import { RouterLink } from '@angular/router';
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })
-export class Home {
-
+export class Home implements OnInit{
+ngOnInit(): void {
+    window.scrollTo(0, 0);
+  }
 }

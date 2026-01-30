@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-projects',
+  selector: 'app-meroapp',
   imports: [],
-  templateUrl: './projects.html',
-  styleUrl: './projects.scss',
+  templateUrl: './meroapp.html',
+  styleUrl: './meroapp.scss',
 })
-export class Projects implements OnInit{
+export class Meroapp implements OnInit{
 ngOnInit(): void {
     window.scrollTo(0, 0);
   }

@@ -30,10 +30,33 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link px-lg-3 py-lg-0" routerLink="/projects" routerLinkActive="active">
+          <a class="nav-link px-lg-3 py-lg-0" routerLink="/details" routerLinkActive="active">
             Proyectos
           </a>
         </li>
+          <li class="nav-item dropdown">
+            <a 
+              class="nav-link dropdown-toggle px-lg-3 py-lg-0" 
+              id="navbarDropdown" 
+              role="button" 
+              data-bs-toggle="dropdown" 
+              aria-expanded="false">
+              Soluciones
+            </a>
+
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>
+                <a class="dropdown-item" routerLink="/meroapp" routerLinkActive="active">
+                  MeroApp
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" routerLink="/details/hardware" routerLinkActive="active">
+                  ParcheCali
+                </a>
+              </li>
+            </ul>
+          </li>
         <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
           <a class="btn btn-primary px-4 py-2 rounded-1 fw-bold shadow-sm d-block d-lg-inline-block" routerLink="/contact">
             Hablemos <i class="bi bi-arrow-right ms-1"></i>

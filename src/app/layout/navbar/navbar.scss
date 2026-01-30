@@ -6,7 +6,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
-  height: 80px; 
+  height: 80px;
 
   .navbar-brand {
     letter-spacing: -0.5px;
@@ -14,15 +14,14 @@
     display: flex;
     align-items: center;
     padding: 0;
-    position: relative; // Contenedor de referencia
-    width: 200px;      // Espacio reservado para que el texto no se encime al logo
+    position: relative; 
+    width: 200px;      
 
-    /* Configuración de la imagen del logo GIGANTE */
     .brand-logo {
-      height: 170px;       // El tamaño que deseas
+      height: 170px;       
       width: auto;
       position: absolute;  
-      top: -80px;          // Lo centramos verticalmente respecto al navbar de 80px
+      top: -80px;          
       left: 0;
       transition: all 0.3s ease;
       filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
@@ -31,7 +30,7 @@
 
     .brand-text {
       font-size: 1.25rem;
-      margin-left: 160px; // Empujamos el texto para que no quede debajo de la imagen
+      margin-left: 160px; 
       transition: all 0.3s ease;
     }
   }
@@ -40,58 +39,110 @@
     color: #495057;
     font-weight: 500;
     font-size: 0.95rem;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
     position: relative;
+    display: flex;
+    align-items: center;
 
     &:hover, &.active {
       color: var(--bs-primary);
     }
+  }
 
-    @media (min-width: 992px) {
-      &.active::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 1rem;
-        right: 1rem;
-        height: 2px;
-        background: var(--bs-primary);
-        border-radius: 2px;
+  /* --- LÓGICA DE DESPLIEGUE AUTOMÁTICO (HOVER) --- */
+  @media (min-width: 992px) {
+    .nav-item.dropdown {
+      &:hover {
+        > .dropdown-menu {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+        > .nav-link {
+          color: var(--bs-primary);
+        }
       }
+    }
+
+    .dropdown-menu {
+      display: block; // Se mantiene en block para controlar la animación
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(15px);
+      padding: 0.75rem;
+      margin-top: 0; // Evita que se cierre el menú al mover el mouse al dropdown
     }
   }
 
-  /* ESTADO CUANDO SE HACE SCROLL */
-  &.navbar-scrolled {
-    height: 65px; // El navbar se achica
-    background: rgba(255, 255, 255, 0.98);
+  .dropdown-item {
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    color: #495057;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
 
-    .brand-logo {
-      height: 100px; // El logo también se achica un poco para no estorbar tanto
-      top: -15px;
+    &:hover {
+      background-color: rgba(var(--bs-primary-rgb), 0.08);
+      color: var(--bs-primary);
+      transform: translateX(5px);
     }
-    
-    .brand-text {
-      margin-left: 110px; // Ajustamos el margen del texto al achicar logo
+
+    &.active {
+      background-color: var(--bs-primary);
+      color: #fff !important;
     }
+  }
+
+  /* --- ESTADO NAVBAR SCROLLED --- */
+  &.navbar-scrolled {
+    height: 65px; 
+    background: rgba(255, 255, 255, 0.98);
+    .brand-logo { height: 100px; top: -15px; }
+    .brand-text { margin-left: 110px; }
   }
 }
 
-/* AJUSTES PARA MÓVILES */
+/* --- AJUSTES PARA MÓVILES (Corrigiendo transparencia) --- */
 @media (max-width: 991.98px) {
   .custom-navbar {
-    height: 70px;
+    height: auto;
+    min-height: 70px;
     
+    .navbar-collapse {
+      background: white; // Fondo sólido para que no sea transparente al abrir
+      margin: 0 -1rem;
+      padding: 1rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+
     .navbar-brand {
-        width: auto;
-        .brand-logo {
-          position: static; // En móviles volvemos al flujo normal para evitar errores
-          height: 50px;
-          margin-top: 0;
-        }
-        .brand-text {
-          margin-left: 10px;
-        }
+      width: auto;
+      .brand-logo { position: static; height: 50px; }
+      .brand-text { margin-left: 10px; }
+    }
+
+    .dropdown-menu {
+      border: none;
+      background: rgba(0, 0, 0, 0.03); // Gris muy tenue para diferenciar el área
+      margin-top: 5px;
+      padding-left: 1rem;
+      display: none; // En móvil vuelve a ser por clic (estándar de UX)
+
+      &.show {
+        display: block;
+      }
+
+      .dropdown-item:hover {
+        transform: none;
+      }
     }
   }
 }

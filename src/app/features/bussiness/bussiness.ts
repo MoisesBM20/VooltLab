@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-bussiness',
@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   templateUrl: './bussiness.html',
   styleUrl: './bussiness.scss',
 })
-export class Bussiness {
-
+export class Bussiness implements AfterViewInit{
+ngAfterViewInit(): void {
+    window.scrollTo(0, 0);
+  }
 }

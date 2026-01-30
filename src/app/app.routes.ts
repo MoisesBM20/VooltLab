@@ -4,6 +4,9 @@ import { Contact } from './features/contact/contact'; // Ajusta la ruta a tu com
 import { Services } from './features/services/services';
 import { Bussiness } from './features/bussiness/bussiness';
 import { Projects } from './features/projects/projects';
+import { Details } from './features/details/details';
+import { Meroapp } from './features/meroapp/meroapp';
+
 
 export const routes: Routes = [
   { 
@@ -29,6 +32,16 @@ export const routes: Routes = [
   { 
     path: 'projects', 
     component: Projects,
+    title: 'VooltLab | Soluciones Tecnologicas'
+  },
+  { 
+    path: 'details', 
+    component: Details,
+    title: 'VooltLab | Soluciones Tecnologicas'
+  },
+  { 
+    path: 'meroapp', 
+    component: Meroapp,
     title: 'VooltLab | Soluciones Tecnologicas'
   },
   { 
